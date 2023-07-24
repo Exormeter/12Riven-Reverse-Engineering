@@ -1,13 +1,112 @@
 # 12Riven_Chinese_Findings
 
 # Table of Contents
-1. [Preamble](#preamble)
-2. [Parsing Commands](#parsing-commands)
-3. [Command 0x00](#command-0x00)
-4. [Command 0x01](#command-0x01)
-5. [Command 0x02](#command-0x02)
-6. [Command 0x0F](#command-0x0F)
-
+1.  [Preamble](#preamble)
+2.  [Parsing Commands](#parsing-commands)
+3.  [Command 0x00](#command-0x00)
+4.  [Command 0x01](#command-0x01)
+5.  [Command 0x02](#command-0x02)
+6.  [Command 0x03](#command-0x03)
+7.  [Command 0x06](#command-0x06)
+8.  [Command 0x07](#command-0x07)
+9.  [Command 0x08](#command-0x08)
+10. [Command 0x09 extGoto](#command-0x09-0x0b)
+11. [Command 0x0A extCall](#command-0x0a-0x0c)
+12. [Command 0x0B extGoto](#command-0x09-0x0b)
+13. [Command 0x0C extCall](#command-0x0a-0x0c)
+14. [Command 0x0D return](#command-0x0d) 
+15. [Command 0x0E Thread](#command-0x0e)
+16. [Command 0x0F](#command-0x0f)
+17. [Command 0x10](#command-0x10)
+18. [Command 0x11](#command-0x11)
+19. [Command 0x12](#command-0x12)
+20. [Command 0x13](#command-0x13)
+21. [Command 0x14 skipWait](#command-0x14)
+22. [Command 0x15 keyWait](#command-0x15)
+23. [Command 0x16](#command-0x16)
+24. [Command 0x17](#command-0x17)
+25. [Command 0x18 msg_disp2](#command-0x18)
+26. [Command 0x1A window](#command-0x1a)
+27. [Command 0x1C selectP](#command-0x1c)
+28. [Command 0x1D select2](#command-0x1d)
+29. [Command 0x1F mesSync](#command-0x1f)
+30. [Command 0x20 screenMode](#command-0x20)
+31. [Command 0x21 setSavePoint](#command-0x21)
+32. [Command 0x22 clearSavePoint](#command-0x22)
+33. [Command 0x23 setPrevPoint](#command-0x23)
+34. [Command 0x24 mesLog](#command-0x24)
+35. [Command 0x25 autoStart](#command-0x25)
+36. [Command 0x26 autoStop](#command-0x26)
+37. [Command 0x27 quickSave](#command-0x27)
+38. [Command 0x28 titleDisplay](#command-0x28)
+39. [Command 0x29 dateDisplay](#command-0x29)
+40. [Command 0x2B locationDisplay](#command-0x2b)
+41. [Command 0x2C getOptions](#command-0x02c)
+42. [Command 0x2D setIcon](#command-0x2e)
+43. [Command 0x2E menuEnable](#command-0x2e)
+44. [Command 0x2F menuDisable](#command-0x02f)
+45. [Command 0x30 fadeOut](#command-0x30)
+46. [Command 0x31 fadeOutStop](#command-0x31-0x33)
+47. [Command 0x32 fadeOutStart](#command-0x32)
+48. [Command 0x33 charErase](#command-0x33)
+49. [Command 0x34 fadeWait](#command-0x34)
+50. [Command 0x36 fadePri](#command-0x036)
+51. [Command 0x38 filtIn](#command-0x38)
+52. [Command 0x39 filtOut](#command-0x39)
+53. [Command 0x3A filtInStart](#command-0x3a)
+54. [Command 0x3E filtInPri](#command-0x3e)
+55. [Command 0x40 charInit](#command-0x40)
+56. [Command 0x42 charDisplay](#command-0x42)
+57. [Command 0x44](#command-0x44)
+58. [Command 0x45](#command-0x45)
+59. [Command 0x46](#command-0x46)
+60. [Command 0x47](#command-0x47)
+61. [Command 0x48](#command-0x48)
+62. [Command 0x49](#command-0x49)
+63. [Command 0x4A](#command-0x4a)
+64. [Command 0x4B](#command-0x4b)
+65. [Command 0x4C](#command-0x4c)
+66. [Command 0x4D](#command-0x4d)
+67. [Command 0x50 charNo](#command-0x50)
+68. [Command 0x51 charOn](#command-0x51)
+69. [Command 0x52 charPri](#command-0x52)
+70. [Command 0x53 charAnimation](#command-0x53)
+71. [Command 0x55 charSwap](#command-0x55)
+72. [Command 0x56 charShadow / charReturn](#command-0x56-0x57)
+73. [Command 0x57 charShadow / charReturn](#command-0x56-0x57)
+74. [Command 0x59 charAttack](#command-0x59)
+75. [Command 0x5F getBackground](#command-0x5f)
+76. [Command 0x60 objInit](#command-0x60)
+77. [Command 0x62 objDisplay](#command-0x62)
+78. [Command 0x63 objErase](#command-0x63)
+79. [Command 0x64](#command-0x64)
+80. [Command 0x65](#command-0x65)
+81. [Command 0x66](#command-0x66)
+82. [Command 0x67](#command-0x67)
+83. [Command 0x68](#command-0x68)
+84. [Command 0x69](#command-0x69)
+85. [Command 0x6A](#command-0x6a)
+86. [Command 0x6B](#command-0x6b)
+87. [Command 0x6C](#command-0x6c)
+88. [Command 0x6D](#command-0x6d)
+89. [Command 0x6E](#command-0x6e)
+90. [Command 0x6F](#command-0x6f)
+91. [Command 0x70 objNo](#command-0x70)
+92. [Command 0x71 objOn](#command-0x71)
+93. [Command 0x72 objPri](#command-0x72)
+94. [Command 0x73 objAnimate](#command-0x73)
+95. [Command 0x74 objSort](#command-0x74)
+96. [Command 0x75 objSwap](#command-0x75)
+97. [Command 0x80 faceInit](#command-0x80)
+98. [Command 0x82 faceDisplay](#command-0x82)
+99. [Command 0x83 faceErase](#command-0x83)
+100. [Command 0x84 facePosition](#command-0x84)
+101. [Command 0x85 faceAutoPosition](#command-0x85)
+102. [Command 0x88 faceNo](#command-0x88)
+103. [Command 0x89 faceon](#command-0x89)
+104. [Command 0x8A facePri](#command-0x8a)
+105. [Command 0xF8 mesLogSave](#command-0xf8)
+    
 
 ## Preamble
 The following observations are made inside the chinese 12Riven.exe. It is highly likely that the same kind of structures are also found
@@ -237,7 +336,7 @@ undefined4 command_0x08(void)
 }
 ```
 
-## Command 0x09 / 0x0B
+## Command 0x09 0x0B
 ### Official name: extGoto
 ### My guess: extern goto script
 ### Description
@@ -286,7 +385,7 @@ command_0x09_0x0B_extGoto(int *wasVisited,undefined4 param_2,int *param_3,uint *
 }
 ```
 
-## Command 0x0A / 0x0C
+## Command 0x0A 0x0C
 ### Official name: extCall
 ### My guess: extern call script
 ### Description
@@ -2272,7 +2371,7 @@ undefined4 command_0x30_fadeOut(int *param_1,undefined4 param_2,int *param_3,int
 }
 ```
 
-## Command 0x31 / 0x33
+## Command 0x31 0x33
 ### Official name: fadeOutStop
 ### My guess: (N/A)
 
@@ -3872,7 +3971,7 @@ undefined4 command_0x55_charSwap(int *param_1,undefined4 param_2,int param_3,int
 }
 ```
 
-## Command 0x56 / 0x57
+## Command 0x56 0x57
 ### Official name: charShadow / charReturn
 ### My guess: (N/A)
 
@@ -5941,7 +6040,7 @@ undefined4 command_0x84_facePosition(int *param_1,undefined4 param_2,int param_3
 ```
 
 ## Command 0x85
-### Official name: faceNo
+### Official name: faceAutoPosition
 ### My guess: (N/A)
 
 ### Code
@@ -5961,7 +6060,7 @@ void command_0x85_faceAutoPosition(undefined4 param_1,undefined4 param_2,undefin
 }
 ```
 ## Command 0x88
-### Official name: faceAutoPostion
+### Official name: faceNo
 ### My guess: (N/A)
 
 ### Code
@@ -6006,7 +6105,7 @@ undefined4 command_0x88_faceNo(int *param_1,undefined4 param_2,int param_3,int *
 ```
 
 ## Command 0x89
-### Official name: faceAutoPostion
+### Official name: faceOn
 ### My guess: (N/A)
 
 ### Code
@@ -6095,8 +6194,8 @@ undefined4 command_0x89_faceOn(int *param_1,undefined4 param_2,uint param_3,int 
 }
 ```
 
-## Command 0x89
-### Official name: faceAutoPostion
+## Command 0x8A
+### Official name: facePri
 ### My guess: (N/A)
 
 ### Code
@@ -6186,7 +6285,7 @@ undefined4 command_0x8a_facePri(int *param_1,undefined4 param_2,uint param_3,int
 }
 ```
 
-## Command 0x89
+## Command 0xF8
 ### Official name: mesLogSave
 ### My guess: (N/A)
 
