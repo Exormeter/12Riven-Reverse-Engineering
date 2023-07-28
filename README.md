@@ -20,6 +20,19 @@ Size with a question mark need to be resarched, they seem to be encoded in the c
 Some opcode point to the same function, but this doesn't mean the size is the same. Inside these functions, there is often a destinction
 between the opcodes. These opcodes can also differe in size.
 
+Example Command function:
+```c
+undefined4 command_0x55_vibEnd_0894aa7c(int param_1)
+{
+  *(int *)(*(int *)(param_1 + 0x44) + 8) = *(int *)(*(int *)(param_1 + 0x44) + 8) + 2;
+  loadNextOpcode_08935360();
+  return 0;
+}
+```
+`0x08949298` is a function that seems to be called if a certain opcode is not supported. First opcode that is not supported is 0x57.
+Might be a feature that was cut in development.
+
+
 | Opcode  | Name    | Size    |  Offset   |
 |---|---|---|---|
 | 0x00  | nop  | 2 |  0x08948288 |
@@ -103,7 +116,42 @@ between the opcodes. These opcodes can also differe in size.
 | 0x4E  | jamp_start | 4 | 0x0894ad48 |
 | 0x4F  | jamp_end   | 2 | 0x0894ad90 |
 | 0x50  | task_entry | 4 | 0x0894aad4 |
-| 0x51  | task_del   | 
+| 0x51  | task_del   | 2(?) | 0x0894ab2c |
+| 0x52  | cal_disp   | 4 | 0x0894a0c4 |
+| 0x53  | title_disp | 2 | 0x0894a160 |
+| 0x54  | vib_start  | 4 | 0x0894aa50 |
+| 0x55  | vib_end    | 2 | 0x0894aa7c |
+| 0x56  | vib_wait   | 2 | 0x0894aaa8 |
+| 0x57  | map_view   | 4(?) | 0x08949298 |
+| 0x58  | map_entry  | 4(?) | 0x08949298 |
+| 0x59  | map_disp   | 4(?) | 0x08949298 |
+| 0x5A  | edit_view  | 4(?) | 0x08949298 |
+| 0x5B  | chat_send  | 4(?) | 0x08949298 |
+| 0x5C  | chat_msg   | 4(?) | 0x08949298 |
+| 0x5D  | chat_entry | 4(?) | 0x08949298 |
+| 0x5E  | chat_exit  | 4(?) | 0x08949298 |
+| 0x5F  | null       |      | 0x00000000 |
+| 0x60  | movie_play | 4 | 0x08949368 |
+| 0x61  | graph_pos_auto | 12 | 0x0894b378 |
+| 0x62  | graph_pos_save | 2 | 0x0894b450 |
+| 0x63  | graph_uv_auto  | 16 | 0x0894b49c |
+| 0x64  | graph_uv_save  | 2 | 0x0894b5a4 |
+| 0x65  | effect_ex      | 38 | 0x089494e4 |
+| 0x66  | fade_ex    | var | 0x0894996c |
+| 0x67  | vib_ex     | 6 | 0x08949f3c |
+| 0x68  | clock_disp | 6 | 0x08949fd4 |
+| 0x69  | graph_disp_ex | var * 0x18 | 0x0894c250 |
+| 0x6A  | map_init_ex | 4(?) | 0x08949298 |
+
+
+
+
+
+
+
+
+
+
 
 
 
