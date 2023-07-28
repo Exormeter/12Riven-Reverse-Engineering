@@ -142,6 +142,46 @@ Might be a feature that was cut in development.
 | 0x68  | clock_disp | 6 | 0x08949fd4 |
 | 0x69  | graph_disp_ex | var * 0x18 | 0x0894c250 |
 | 0x6A  | map_init_ex | 4(?) | 0x08949298 |
+| 0x6B  | map_point_ex | 4(?) | 0x08949298 |
+| 0x6C  | map_route_ex | 4(?) | 0x08949298 |
+| 0x6D  | quickk_save  | 2 | 0x0894adc4 |
+| 0x6E  | trace_spc    | 2 | 0x0894d52c |
+| 0x6F  | sys_msg      | 4 | 0x0894a318 |
+| 0x70  | skip_lock    | 2 | 0x0894abd4 |
+| 0x71  | key_lock     | 2 | 0x0894ab94 |
+| 0x72  | graph_disp2  | var * 0x10 | 0x0894c250 |
+| 0x73  | msg_disp2    | 12 | 0x0894cd7c |
+| 0x74  | sel_disp2  | 6 | 0x0894d7dc |
+| 0x75  | date_disp  | 8 | 0x0894a040 |
+| 0x76  | vr_disp | 4 (?) | 0x08949298 |
+| 0x77  | vr_select | 4 (?) | 0x08949298 |
+| 0x78   | vr_reg_calc | 4 (?) | 0x08949298 |
+| 0x79  | vr_msg_disp | 4 (?) | 0x08949298 |
+| 0x7A  | map_select | 4 (?) | 0x08949298 |
+| 0x7B  | ecg_set | 4 (?) | 0x08949298 |
+| 0x7C | ev_init | 4 (?) | 0x08949298 |
+| 0x7D | ev_disp | 4 (?) | 0x08949298 |
+| 0x7E  | ev_anim | 4 (?) | 0x08949298 |
+| 0x7F | eye_lock | 2 | 0x0894ac14 |
+| 0x80 | msg_log | 4 | 0x0894d5b8 |
+| 0x81 | graph_scale_auto | 16 | 0x0894b5f0 |
+| 0x82 | movie_start | 2 (?) | 0x089492f8 |
+| 0x83 | move_end | 2 (?) | 0x08949330 |
+| 0x84 | fade_ex_start | 6 | 0x08949bf0 |
+| 0x85 | fade_ex_wait | 2 | 0x08949ddc |
+| 0x86 | breath_lock | 2 | 0x0894ac54 |
+| 0x87 | g3d_disp | 2(?) | 0x0894e46c |
+| 0x88 | staff_start | 6 | 0x0894e4a4 |
+| 0x89 | staff_end | 2 | 0x0894e4f8 |
+| 0x8A | staff_wait | 2 | 0x0894e538 |
+| 0x8B | scroll_lock | 2 | 0x0894e564 |
+
+
+
+
+
+
+
 
 
 
