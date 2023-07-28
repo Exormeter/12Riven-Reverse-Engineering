@@ -12,6 +12,24 @@ a char pointer to the name of the command and and uint32_t that is all 0, probab
 
 # RE setup
 
+How to decompile 12Riven for PSP
+
+1. Mount the ISO as a drive in Windows (can be done with the build-in Windows mounting tools)
+2. Copy the EBOOT.BIN from ISO:/PSP_GAME/SYSDIR/ to your computer
+3. Use [deceboot](https://www.romhacking.net/utilities/1225/) to dercypy the bin file
+4. Download [Ghirda](https://github.com/NationalSecurityAgency/ghidra/releases/download/Ghidra_10.3.2_build/ghidra_10.3.2_PUBLIC_20230711.zip)
+5. Extract Ghidra and follow the steps to set it up
+6. Download the [Allegerx](https://github.com/kotcrab/ghidra-allegrex/releases) for Ghidra
+7. Extract the extention and copy the folder into /Ghidra_folder/Ghidra/Processors/
+8. Open Ghidra, create a new project and import the decrypted EBOOT.BIN
+9. Ghdira should recoconize the processor from the binary and the eboot can de decompiled
+
+How to disassble 12Riven for PSP
+
+1. Download [PPSSPP](https://www.ppsspp.org/download)
+2. Load the 12Riven ISO into the emulator and start the game
+3. Click on Debug -> Disassembler... to open the disassembler for the running game
+4. Click on Debug -> Memory view to get a view of the curretn RAM contents
 
 # Opcodes
 
