@@ -84,7 +84,7 @@ Might be a feature that was cut in development.
 | 0x1C  | msg_speed  | 2 | 0x0894c9a0 |
 | 0x1D  | msg_color  | 2 | 0x0894c9ec |
 | 0x1E  | msg_anim   | 2 | 0x0894ca38 |
-| 0x1F  | msg_disp   | 0x10 (?) | 0x0894cd7c |
+| 0x1F  | msg_disp   | 10 (?) | 0x0894cd7c |
 | 0x20  | sel_set    | 4 | 0x0894d5e4 |
 | 0x21  | sel_entry  | 6 | 0x0894d638 |
 | 0x22  | sel_view   | 2 | 0x894d694  |
