@@ -24,7 +24,7 @@ a char pointer to the name of the command and and uint32_t that is all 0, probab
 8. Open Ghidra, create a new project and import the decrypted EBOOT.BIN
 9. Ghdira should recoconize the processor from the binary and the eboot can de decompiled
 
-## How to disassble 12Riven for PSP
+## How to disassemble 12Riven for PSP
 
 1. Download [PPSSPP](https://www.ppsspp.org/download)
 2. Load the 12Riven ISO into the emulator and start the game
