@@ -1,4 +1,4 @@
-# 12Riven_Chinese_Findings
+# 12Riven Chinese Finding
 
 # Table of Contents
 1.  [Preamble](#preamble)
